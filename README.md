@@ -38,7 +38,8 @@ ted by blood-sucking arthropods.
 EPG researchers currently use an analogue EPG hardware system.
 
 
-This is a visualizer software for the EPG, focusing on usability and efficiency of the waveform
+This is a digital all-encompassing visualizer software for the EPG, 
+focusing on usability and efficiency of the waveform
 analysis features along with the ability to annotate with experimental obser-
 vations. This project aims to improve the user experience and productivity
 of EPG researchers and lower the barrier of entry for new entomologists in
