@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>package.utils.data_classes API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>package.utils.data_classes</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import dataclasses
+from dataclasses import dataclass
+from package.utils.enums import AnnotationType
+
+@dataclass
+class DataPoint:
+    time: float
+    voltage: float
+    channel: int
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))
+
+    def __str__(self):
+        return f&#34;DataPoint: time:float={self.time}, voltage:float={self.voltage}, channel:int={self.channel}&#34;
+
+
+@dataclass
+class Annotation:
+    timeStart: float
+    clockTime: str  
+    text: str = &#34;&#34;
+    duration: float = 0
+    annotationType: AnnotationType = AnnotationType.POINT
+    autogenerated: bool = False 
+
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))
+
+@dataclass
+class EPGParameters:
+    inputResistance: int
+    amplifierGain: int
+    dcBias: float
+    excitationAmplitude: float
+    excitationFrequency: int
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))
+
+    def __str__(self):
+        return f&#34;EPGParameters: inputResistance:int={self.inputResistance}, amplifierGain:int={self.amplifierGain}, dcBias:float={self.dcBias}, excitationAmplitude:float={self.excitationAmplitude}, excitationFrequency:int={self.excitationFrequency}&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="package.utils.data_classes.Annotation"><code class="flex name class">
+<span>class <span class="ident">Annotation</span></span>
+<span>(</span><span>timeStart: float, clockTime: str, text: str = '', duration: float = 0, annotationType: <a title="package.utils.enums.AnnotationType" href="enums.html#package.utils.enums.AnnotationType">AnnotationType</a> = AnnotationType.POINT, autogenerated: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Annotation(timeStart: float, clockTime: str, text: str = '', duration: float = 0, annotationType: package.utils.enums.AnnotationType = <AnnotationType.POINT: 1>, autogenerated: bool = False)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Annotation:
+    timeStart: float
+    clockTime: str  
+    text: str = &#34;&#34;
+    duration: float = 0
+    annotationType: AnnotationType = AnnotationType.POINT
+    autogenerated: bool = False 
+
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="package.utils.data_classes.Annotation.annotationType"><code class="name">var <span class="ident">annotationType</span> : <a title="package.utils.enums.AnnotationType" href="enums.html#package.utils.enums.AnnotationType">AnnotationType</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.Annotation.autogenerated"><code class="name">var <span class="ident">autogenerated</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.Annotation.clockTime"><code class="name">var <span class="ident">clockTime</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.Annotation.duration"><code class="name">var <span class="ident">duration</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.Annotation.text"><code class="name">var <span class="ident">text</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.Annotation.timeStart"><code class="name">var <span class="ident">timeStart</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="package.utils.data_classes.DataPoint"><code class="flex name class">
+<span>class <span class="ident">DataPoint</span></span>
+<span>(</span><span>time: float, voltage: float, channel: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>DataPoint(time: float, voltage: float, channel: int)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class DataPoint:
+    time: float
+    voltage: float
+    channel: int
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))
+
+    def __str__(self):
+        return f&#34;DataPoint: time:float={self.time}, voltage:float={self.voltage}, channel:int={self.channel}&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="package.utils.data_classes.DataPoint.channel"><code class="name">var <span class="ident">channel</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.DataPoint.time"><code class="name">var <span class="ident">time</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.DataPoint.voltage"><code class="name">var <span class="ident">voltage</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="package.utils.data_classes.EPGParameters"><code class="flex name class">
+<span>class <span class="ident">EPGParameters</span></span>
+<span>(</span><span>inputResistance: int, amplifierGain: int, dcBias: float, excitationAmplitude: float, excitationFrequency: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>EPGParameters(inputResistance: int, amplifierGain: int, dcBias: float, excitationAmplitude: float, excitationFrequency: int)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class EPGParameters:
+    inputResistance: int
+    amplifierGain: int
+    dcBias: float
+    excitationAmplitude: float
+    excitationFrequency: int
+
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            value = getattr(self, field.name)
+            if not isinstance(value, field.type):
+                setattr(self, field.name, field.type(value))
+
+    def __str__(self):
+        return f&#34;EPGParameters: inputResistance:int={self.inputResistance}, amplifierGain:int={self.amplifierGain}, dcBias:float={self.dcBias}, excitationAmplitude:float={self.excitationAmplitude}, excitationFrequency:int={self.excitationFrequency}&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="package.utils.data_classes.EPGParameters.amplifierGain"><code class="name">var <span class="ident">amplifierGain</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.EPGParameters.dcBias"><code class="name">var <span class="ident">dcBias</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.EPGParameters.excitationAmplitude"><code class="name">var <span class="ident">excitationAmplitude</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.EPGParameters.excitationFrequency"><code class="name">var <span class="ident">excitationFrequency</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.data_classes.EPGParameters.inputResistance"><code class="name">var <span class="ident">inputResistance</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="package.utils" href="index.html">package.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="package.utils.data_classes.Annotation" href="#package.utils.data_classes.Annotation">Annotation</a></code></h4>
+<ul class="two-column">
+<li><code><a title="package.utils.data_classes.Annotation.annotationType" href="#package.utils.data_classes.Annotation.annotationType">annotationType</a></code></li>
+<li><code><a title="package.utils.data_classes.Annotation.autogenerated" href="#package.utils.data_classes.Annotation.autogenerated">autogenerated</a></code></li>
+<li><code><a title="package.utils.data_classes.Annotation.clockTime" href="#package.utils.data_classes.Annotation.clockTime">clockTime</a></code></li>
+<li><code><a title="package.utils.data_classes.Annotation.duration" href="#package.utils.data_classes.Annotation.duration">duration</a></code></li>
+<li><code><a title="package.utils.data_classes.Annotation.text" href="#package.utils.data_classes.Annotation.text">text</a></code></li>
+<li><code><a title="package.utils.data_classes.Annotation.timeStart" href="#package.utils.data_classes.Annotation.timeStart">timeStart</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="package.utils.data_classes.DataPoint" href="#package.utils.data_classes.DataPoint">DataPoint</a></code></h4>
+<ul class="">
+<li><code><a title="package.utils.data_classes.DataPoint.channel" href="#package.utils.data_classes.DataPoint.channel">channel</a></code></li>
+<li><code><a title="package.utils.data_classes.DataPoint.time" href="#package.utils.data_classes.DataPoint.time">time</a></code></li>
+<li><code><a title="package.utils.data_classes.DataPoint.voltage" href="#package.utils.data_classes.DataPoint.voltage">voltage</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="package.utils.data_classes.EPGParameters" href="#package.utils.data_classes.EPGParameters">EPGParameters</a></code></h4>
+<ul class="">
+<li><code><a title="package.utils.data_classes.EPGParameters.amplifierGain" href="#package.utils.data_classes.EPGParameters.amplifierGain">amplifierGain</a></code></li>
+<li><code><a title="package.utils.data_classes.EPGParameters.dcBias" href="#package.utils.data_classes.EPGParameters.dcBias">dcBias</a></code></li>
+<li><code><a title="package.utils.data_classes.EPGParameters.excitationAmplitude" href="#package.utils.data_classes.EPGParameters.excitationAmplitude">excitationAmplitude</a></code></li>
+<li><code><a title="package.utils.data_classes.EPGParameters.excitationFrequency" href="#package.utils.data_classes.EPGParameters.excitationFrequency">excitationFrequency</a></code></li>
+<li><code><a title="package.utils.data_classes.EPGParameters.inputResistance" href="#package.utils.data_classes.EPGParameters.inputResistance">inputResistance</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

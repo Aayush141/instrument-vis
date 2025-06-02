@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>package.utils.serial_reader API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>package.utils.serial_reader</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import os
+import time
+
+import pandas as pd
+
+from PySide6.QtCore import QObject, Qt, Signal, Slot
+from PySide6.QtSerialPort import QSerialPort, QSerialPortInfo
+from PySide6.QtWidgets import QMessageBox, QProgressDialog
+from PySide6.QtGui import QColor
+
+from package.utils.data_classes import Annotation, DataPoint
+from package.utils.utils import formatEpochTimeToDuration, formatEpochTimeToClockTime
+from package.utils.enums import AnnotationType
+
+class SerialData(QObject):
+    &#34;&#34;&#34;Reads live serial data from EPG device&#34;&#34;&#34;
+
+    ready = Signal()
+    progress = Signal(DataPoint)
+    finished = Signal()
+    processed = Signal(list)  # filenames
+    resumed = Signal(bool, list, float)  # Annotation, save recording, buffer, pause duration
+    paused = Signal()
+    startTime = Signal(float)
+    addAnnotation = Signal(Annotation)
+    addVerticalLine = Signal(float) # x value, color
+
+    def __init__(self):
+        super().__init__()
+        self.serialData = None
+        self.isPlaying = False
+        self.isPaused = False
+        self.file = None
+
+        self.buffer = []
+        self.waitingForUserInput = False
+        # Time management
+        self.started = 0
+        self.ended = 0
+        self.sampleRate = 10  # samples per second
+        self.elapsedTime = 0  # in seconds
+        self.timeWhenPaused = 0  # in seconds
+        self.totalTimePaused = 0
+
+    &#34;&#34;&#34; 
+    Serial port-related functions
+    &#34;&#34;&#34;
+
+    def setUpSerial(self, deviceManufacturers: list[str] = [&#34;teensy&#34;, &#34;arduino&#34;]):
+        &#34;&#34;&#34;Scans all available serial ports and selects the EPG monitor
+        :param deviceManufacturers: list of names that fit the EPG monitor
+        &#34;&#34;&#34;
+        print(&#34;Setting up serial...&#34;)
+        ports = QSerialPortInfo.availablePorts()
+        candidateDevices = []
+        for port in ports:
+            for deviceName in deviceManufacturers:
+                portName = port.portName().lower()
+                # TODO: identify better identification methods
+                # if deviceName in port.manufacturer().lower() and (&#34;usb&#34; in portName or &#34;ttyacm0&#34; in portName):
+                candidateDevices.append(port)
+
+        portName = &#34;&#34;
+        for port in candidateDevices:
+            print(&#34;Selecting first matching device:&#34;)
+            print(&#34;Port: &#34; + port.portName())
+            print(&#34;Manufacturer: &#34; + port.manufacturer())
+            print(&#34;Description: &#34; + port.description())
+            portName = port.portName()
+            break
+
+        if portName == &#34;&#34;:
+            print(&#34;Port could not be found&#34;)
+            self.finished.emit()
+            return -1
+
+        # Set up serial port for reading
+        self.serial = QSerialPort()
+        self.serial.setPortName(portName)
+        self.serial.setBaudRate(
+            QSerialPort.BaudRate.Baud9600, QSerialPort.Direction.Input
+        )
+
+        # # Wait for EPG to be ready before streaming data
+        # if (not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite)):
+        #        print(&#34;Unable to open serial port&#34;)
+        #        return
+
+        # # Tell EPG to start up and send sample rate
+        # # self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+        # # Wait for response from EPG
+        # self.serial.readyRead.connect(lambda message = &#34;INIT&#34;:self.waitForMessageFromEPG(message))
+
+        # To test without dealing with EPG setup, comment out everything after
+        # the line that says wait for EPG to be ready before streaming data.
+        # Also upload code in resources/teensy_code/noInitialization to Teensy
+        self.ready.emit()
+        self.serial.readyRead.connect(self.readData)
+
+    @Slot(str)
+    def waitForMessageFromEPG(self, message: str):
+        &#34;&#34;&#34;Waits until serial data matching specific message can be read.
+        param message: message that should be waited for before proceeding
+        to next step of initialization
+
+        :param message: message that should be waited for
+        &#34;&#34;&#34;
+        while self.serial.canReadLine():
+            data = str(self.serial.readLine().data(), &#34;utf-8&#34;).strip()
+            label = data.split(&#34;,&#34;)[0]
+            print(&#34;INIT MODE&#34;, data)
+            if label != message:
+                return
+
+            match label:
+                case &#34;INIT&#34;:
+                    print(&#34;INIT message received&#34;)
+                    print(data)
+                    print(&#34;Sending BEGIN message...&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        lambda message=&#34;BEGIN&#34;: self.waitForMessageFromEPG(message)
+                    )
+                    self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+                    break
+                case &#34;BEGIN&#34;:
+                    print(&#34;BEGIN message received&#34;)
+                    print(data)
+                    print(&#34;Sending PARAM message...&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        lambda message=&#34;PARAM&#34;: self.waitForMessageFromEPG(message)
+                    )
+                    # PARAM, channel #, input resistance, amplifier gain, DC bias, excitation frequency, excitation amplitude
+                    self.serial.write(bytes(&#34;PARAM,1,100000,0,0,100,0\n&#34;.encode()))
+                    break
+                case &#34;PARAM&#34;:
+                    print(&#34;PARAM message received&#34;)
+                    print(data)
+                    print(&#34;Set up complete!&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        self.readData, Qt.ConnectionType.UniqueConnection
+                    )
+                    self.serial.close()
+                    self.ready.emit()
+                    break
+
+    def startReadingData(self):
+        &#34;&#34;&#34;Opens serial port and reads data when available&#34;&#34;&#34;
+        if self.isPlaying:
+            return
+        if self.started == 0:
+            self.started = time.time()
+            self.startTime.emit(self.started)
+            if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+                print(&#34;Unable to open serial port or port already open&#34;)
+        # If resuming from a paused recording
+        if self.isPaused:
+            # Add amount of time that the recording was paused
+            timePausedFor = time.time() - self.timeWhenPaused
+            self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+            self.promptSavePaused(timePausedFor)
+
+        self.isPlaying = True
+        self.isPaused = False
+
+    @Slot()
+    def readData(self):
+        &#34;&#34;&#34;Given output in the form of &#39;O, pre-rect voltage, post-rect voltage&#39;,
+        displays on visualizer and saves to file
+        :param data: bytes representing voltage data
+        &#34;&#34;&#34;
+        while self.serial.canReadLine():
+            data = str(self.serial.readLine(), &#34;utf-8&#34;).strip().split(&#34;,&#34;)
+            label = data[0]
+            if label == &#34;O&#34;:
+                self.elapsedTime = round(
+                    time.time() - self.totalTimePaused - self.started, 4
+                )
+                prerectified, rectified = data[1], data[2]
+                voltage = rectified
+                channel = 1  # Placeholder value
+                point = DataPoint(self.elapsedTime, voltage, channel)
+                row = f&#34;{point.time:.4f},DATA,{point.voltage:.4f},{channel}\n&#34;
+                # If user is deciding where to save paused data or not
+                # store incoming data points into buffer
+                if self.waitingForUserInput:
+                    self.buffer.append(point)
+                else:
+                    self.progress.emit([point])
+                self.file.write(row)
+            else:
+                print(data)
+                print(&#34;Error in parsing&#34;)
+
+    def pauseData(self):
+        &#34;&#34;&#34;Pauses serial data acquisition&#34;&#34;&#34;
+        if self.isPaused:
+            return
+        self.paused.emit()
+
+        elapsedTime = self.elapsedTime 
+        self.timeWhenPaused = time.time()
+
+        print(&#34;Pausing the recording...&#34;)
+
+        self.file.write(f&#34;{elapsedTime:.4f},PAUSE\n&#34;)
+        self.saveFile()
+    
+        # Create vertical line at time recording was paused
+        self.addVerticalLine.emit(elapsedTime)
+        self.isPaused = True
+        self.isPlaying = False
+
+
+
+    def stopData(self):
+        &#34;&#34;&#34;Stops serial data acquisition. The next time recording is started,
+        it will start as a new file.
+        &#34;&#34;&#34;
+        self.ended = time.time()
+        if self.isPaused:
+            # If recording is paused when user ends the session,
+            # ask user whether they want to keep the paused portion or not
+            timePausedFor = self.ended - self.timeWhenPaused
+            self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+            self.promptSavePaused(timePausedFor)
+
+        totalTime = self.elapsedTime + self.totalTimePaused
+        print(&#34;Stopping serial communication and closing file...&#34;)
+        self.finished.emit()
+        text = f&#34;{self.elapsedTime:.4f},END,Total elapsed time in hh:mm:ss: {formatEpochTimeToDuration(self.elapsedTime)}. Total recording time including time paused: {formatEpochTimeToDuration(totalTime)}. Computer clock says it has been {formatEpochTimeToDuration(self.ended - self.started)}\n&#34;
+
+        self.file.write(text)
+
+        self.saveFile()
+        self.closeFile()
+        self.serial.close()
+
+        # Reset time
+        self.elapsedTime = 0
+        self.timeWhenPaused = 0
+        self.totalTimePaused = 0
+        self.started = 0
+        self.ended = 0
+        self.processData()
+
+    def processData(self):
+        &#34;&#34;&#34;Once user ends recording, process data in output csv such that
+        timing is adjusted in accordance to what paused sections were preserved or not&#34;&#34;&#34;
+        # Popup progress dialog box
+        print(&#34;Processing file...&#34;)
+        progressDialog = QProgressDialog(
+            &#34;Processing file...&#34;, &#34;Delete recording&#34;, 0, 10
+        )
+        progressDialog.setWindowModality(Qt.WindowModality.WindowModal)
+        df = pd.read_csv(
+            self.filename, names=[&#34;timestamp&#34;, &#34;label&#34;, &#34;value1&#34;, &#34;value2&#34;, &#34;value3&#34;]
+        )
+        pauses = df[df[&#34;label&#34;] == &#34;PAUSE&#34;].index.tolist()
+        resumes = df[df[&#34;label&#34;] == &#34;RESUME&#34;].index.tolist()
+        saves = df[df[&#34;label&#34;] == &#34;SAVE&#34;].index.tolist()
+        print(pauses, resumes, saves)
+        progressDialog.setMaximum(len(pauses) + 1)
+        for i in range(len(pauses)):
+            save = df.loc[saves[i]][&#34;value1&#34;]
+            if save == &#34;F&#34;:
+                timePausedFor = float(df.at[resumes[i], &#34;value1&#34;])
+                df.loc[resumes[i] + 1 : saves[i], &#34;timestamp&#34;] -= timePausedFor
+                df.drop(df.loc[pauses[i]:(resumes[i])].index, inplace=True)
+                df.drop(saves[i], inplace = True)
+            else:
+                df.drop([pauses[i], resumes[i], saves[i]], inplace=True)
+            progressDialog.setValue(i)
+
+        # change data to fit specifications
+
+        df[&#34;value2&#34;] = df[&#34;value2&#34;].astype(&#34;Int64&#34;)
+        df = df.drop(&#34;label&#34;, axis=1)
+        df = df.iloc[:-1]  # Drop last row, TEMP
+        df.timestamp.round(4)
+        outputFile = os.path.splitext(self.filename)[0]
+        pd.DataFrame(df).to_csv(outputFile + &#34;_processed.csv&#34;, index=False)
+        progressDialog.setValue(len(pauses))
+        print(&#34;Finished processing file&#34;)
+
+        # Prompt user whether they want to view recording in
+        # post-acquisition mode
+        answer = QMessageBox.question(
+            None,
+            &#34;Save&#34;,
+            &#34;Open recording in post-acquisition mode?&#34;,
+            QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.Yes,
+        )
+        if answer == QMessageBox.StandardButton.Yes:
+            self.processed.emit([outputFile + &#34;_processed.csv&#34;])
+        else:
+            pass
+
+    def sendParam(self, param: str):
+        &#34;&#34;&#34;Gets parameters from the EPG GUI and writes them to the serial
+        port to update configurations on the hardware side.
+        :param param: string representing parameters to change
+        &#34;&#34;&#34;
+        isOpen = self.serial.isOpen()
+        if not isOpen:
+            if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+                print(&#34;Couldn&#39;t open port&#34;)
+                return
+        self.serial.write(bytes(param.encode()))
+        print(&#34;Sending PARAM message &#34; + param)
+        if not isOpen:
+            self.serial.close()
+
+    def promptSavePaused(self, timePausedFor):
+        &#34;&#34;&#34;Show message box that asks user whether or not to keep the
+        paused portion of the recording or not
+
+        :param timePausedFor: Duration of the paused portion
+        &#34;&#34;&#34;
+        self.waitingForUserInput = True
+        answer = QMessageBox.question(
+            None,
+            &#34;Save&#34;,
+            &#34;Save paused portion of recording?&#34;,
+            QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.Yes,
+        )
+
+        clockTime = formatEpochTimeToClockTime(self.timeWhenPaused)
+        timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+        text = f&#34;Paused for {timePausedFor} seconds&#34;
+        annotationType = AnnotationType.VERTICAL 
+        duration = timePausedFor
+
+        if answer == QMessageBox.StandardButton.Yes:
+            # No annotation to save, save paused portion
+            self.file.write(f&#34;{self.elapsedTime},SAVE,T\n&#34;)
+            self.resumed.emit(True, self.buffer, timePausedFor)
+            self.buffer = []
+            self.waitingForUserInput = False
+        else:
+            # Get elapsed time when recording was paused 
+            timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+            self.totalTimePaused += timePausedFor
+
+            duration = 0
+            self.file.write(f&#34;{self.elapsedTime},SAVE,F\n&#34;)
+            # Edit times of points in buffer to account for paused portion
+            # being removed 
+            buffer = list(
+                map(
+                    lambda point: DataPoint(
+                        point.time - timePausedFor, point.voltage, point.channel
+                    ),
+                    self.buffer,
+                )
+            )
+            self.resumed.emit(False, buffer, timePausedFor)
+            self.buffer = []
+            self.waitingForUserInput = False
+        
+        # Create autogenerated annotation about pause
+        annotation = Annotation(timeStart = round(timeStart, 4), clockTime = clockTime, text = text, duration = round(duration,4), annotationType=annotationType, autogenerated = True)
+        self.addAnnotation.emit(annotation)
+
+
+    &#34;&#34;&#34; 
+    File operations
+    &#34;&#34;&#34;
+
+    def createFile(self, name=&#34;epgOutput.csv&#34;):
+        &#34;&#34;&#34;Creates a new csv file where data is stored&#34;&#34;&#34;
+        print(&#34;Saving data in &#34; + name)
+        self.filename = name
+        self.file = open(name, &#34;w&#34;)
+
+    def saveFile(self):
+        &#34;&#34;&#34;Saves data by flushing out data in memory&#34;&#34;&#34;
+        self.file.flush()
+
+    def closeFile(self):
+        &#34;&#34;&#34;Closes current file that EPG data is saved to&#34;&#34;&#34;
+        self.file.close()
+        self.file = None</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="package.utils.serial_reader.SerialData"><code class="flex name class">
+<span>class <span class="ident">SerialData</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads live serial data from EPG device</p>
+<p><strong>init</strong>(self, parent: Optional[PySide6.QtCore.QObject] = None) -&gt; None</p>
+<p>Initialize self.
+See help(type(self)) for accurate signature.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SerialData(QObject):
+    &#34;&#34;&#34;Reads live serial data from EPG device&#34;&#34;&#34;
+
+    ready = Signal()
+    progress = Signal(DataPoint)
+    finished = Signal()
+    processed = Signal(list)  # filenames
+    resumed = Signal(bool, list, float)  # Annotation, save recording, buffer, pause duration
+    paused = Signal()
+    startTime = Signal(float)
+    addAnnotation = Signal(Annotation)
+    addVerticalLine = Signal(float) # x value, color
+
+    def __init__(self):
+        super().__init__()
+        self.serialData = None
+        self.isPlaying = False
+        self.isPaused = False
+        self.file = None
+
+        self.buffer = []
+        self.waitingForUserInput = False
+        # Time management
+        self.started = 0
+        self.ended = 0
+        self.sampleRate = 10  # samples per second
+        self.elapsedTime = 0  # in seconds
+        self.timeWhenPaused = 0  # in seconds
+        self.totalTimePaused = 0
+
+    &#34;&#34;&#34; 
+    Serial port-related functions
+    &#34;&#34;&#34;
+
+    def setUpSerial(self, deviceManufacturers: list[str] = [&#34;teensy&#34;, &#34;arduino&#34;]):
+        &#34;&#34;&#34;Scans all available serial ports and selects the EPG monitor
+        :param deviceManufacturers: list of names that fit the EPG monitor
+        &#34;&#34;&#34;
+        print(&#34;Setting up serial...&#34;)
+        ports = QSerialPortInfo.availablePorts()
+        candidateDevices = []
+        for port in ports:
+            for deviceName in deviceManufacturers:
+                portName = port.portName().lower()
+                # TODO: identify better identification methods
+                # if deviceName in port.manufacturer().lower() and (&#34;usb&#34; in portName or &#34;ttyacm0&#34; in portName):
+                candidateDevices.append(port)
+
+        portName = &#34;&#34;
+        for port in candidateDevices:
+            print(&#34;Selecting first matching device:&#34;)
+            print(&#34;Port: &#34; + port.portName())
+            print(&#34;Manufacturer: &#34; + port.manufacturer())
+            print(&#34;Description: &#34; + port.description())
+            portName = port.portName()
+            break
+
+        if portName == &#34;&#34;:
+            print(&#34;Port could not be found&#34;)
+            self.finished.emit()
+            return -1
+
+        # Set up serial port for reading
+        self.serial = QSerialPort()
+        self.serial.setPortName(portName)
+        self.serial.setBaudRate(
+            QSerialPort.BaudRate.Baud9600, QSerialPort.Direction.Input
+        )
+
+        # # Wait for EPG to be ready before streaming data
+        # if (not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite)):
+        #        print(&#34;Unable to open serial port&#34;)
+        #        return
+
+        # # Tell EPG to start up and send sample rate
+        # # self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+        # # Wait for response from EPG
+        # self.serial.readyRead.connect(lambda message = &#34;INIT&#34;:self.waitForMessageFromEPG(message))
+
+        # To test without dealing with EPG setup, comment out everything after
+        # the line that says wait for EPG to be ready before streaming data.
+        # Also upload code in resources/teensy_code/noInitialization to Teensy
+        self.ready.emit()
+        self.serial.readyRead.connect(self.readData)
+
+    @Slot(str)
+    def waitForMessageFromEPG(self, message: str):
+        &#34;&#34;&#34;Waits until serial data matching specific message can be read.
+        param message: message that should be waited for before proceeding
+        to next step of initialization
+
+        :param message: message that should be waited for
+        &#34;&#34;&#34;
+        while self.serial.canReadLine():
+            data = str(self.serial.readLine().data(), &#34;utf-8&#34;).strip()
+            label = data.split(&#34;,&#34;)[0]
+            print(&#34;INIT MODE&#34;, data)
+            if label != message:
+                return
+
+            match label:
+                case &#34;INIT&#34;:
+                    print(&#34;INIT message received&#34;)
+                    print(data)
+                    print(&#34;Sending BEGIN message...&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        lambda message=&#34;BEGIN&#34;: self.waitForMessageFromEPG(message)
+                    )
+                    self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+                    break
+                case &#34;BEGIN&#34;:
+                    print(&#34;BEGIN message received&#34;)
+                    print(data)
+                    print(&#34;Sending PARAM message...&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        lambda message=&#34;PARAM&#34;: self.waitForMessageFromEPG(message)
+                    )
+                    # PARAM, channel #, input resistance, amplifier gain, DC bias, excitation frequency, excitation amplitude
+                    self.serial.write(bytes(&#34;PARAM,1,100000,0,0,100,0\n&#34;.encode()))
+                    break
+                case &#34;PARAM&#34;:
+                    print(&#34;PARAM message received&#34;)
+                    print(data)
+                    print(&#34;Set up complete!&#34;)
+                    self.serial.readyRead.disconnect()
+                    self.serial.readyRead.connect(
+                        self.readData, Qt.ConnectionType.UniqueConnection
+                    )
+                    self.serial.close()
+                    self.ready.emit()
+                    break
+
+    def startReadingData(self):
+        &#34;&#34;&#34;Opens serial port and reads data when available&#34;&#34;&#34;
+        if self.isPlaying:
+            return
+        if self.started == 0:
+            self.started = time.time()
+            self.startTime.emit(self.started)
+            if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+                print(&#34;Unable to open serial port or port already open&#34;)
+        # If resuming from a paused recording
+        if self.isPaused:
+            # Add amount of time that the recording was paused
+            timePausedFor = time.time() - self.timeWhenPaused
+            self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+            self.promptSavePaused(timePausedFor)
+
+        self.isPlaying = True
+        self.isPaused = False
+
+    @Slot()
+    def readData(self):
+        &#34;&#34;&#34;Given output in the form of &#39;O, pre-rect voltage, post-rect voltage&#39;,
+        displays on visualizer and saves to file
+        :param data: bytes representing voltage data
+        &#34;&#34;&#34;
+        while self.serial.canReadLine():
+            data = str(self.serial.readLine(), &#34;utf-8&#34;).strip().split(&#34;,&#34;)
+            label = data[0]
+            if label == &#34;O&#34;:
+                self.elapsedTime = round(
+                    time.time() - self.totalTimePaused - self.started, 4
+                )
+                prerectified, rectified = data[1], data[2]
+                voltage = rectified
+                channel = 1  # Placeholder value
+                point = DataPoint(self.elapsedTime, voltage, channel)
+                row = f&#34;{point.time:.4f},DATA,{point.voltage:.4f},{channel}\n&#34;
+                # If user is deciding where to save paused data or not
+                # store incoming data points into buffer
+                if self.waitingForUserInput:
+                    self.buffer.append(point)
+                else:
+                    self.progress.emit([point])
+                self.file.write(row)
+            else:
+                print(data)
+                print(&#34;Error in parsing&#34;)
+
+    def pauseData(self):
+        &#34;&#34;&#34;Pauses serial data acquisition&#34;&#34;&#34;
+        if self.isPaused:
+            return
+        self.paused.emit()
+
+        elapsedTime = self.elapsedTime 
+        self.timeWhenPaused = time.time()
+
+        print(&#34;Pausing the recording...&#34;)
+
+        self.file.write(f&#34;{elapsedTime:.4f},PAUSE\n&#34;)
+        self.saveFile()
+    
+        # Create vertical line at time recording was paused
+        self.addVerticalLine.emit(elapsedTime)
+        self.isPaused = True
+        self.isPlaying = False
+
+
+
+    def stopData(self):
+        &#34;&#34;&#34;Stops serial data acquisition. The next time recording is started,
+        it will start as a new file.
+        &#34;&#34;&#34;
+        self.ended = time.time()
+        if self.isPaused:
+            # If recording is paused when user ends the session,
+            # ask user whether they want to keep the paused portion or not
+            timePausedFor = self.ended - self.timeWhenPaused
+            self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+            self.promptSavePaused(timePausedFor)
+
+        totalTime = self.elapsedTime + self.totalTimePaused
+        print(&#34;Stopping serial communication and closing file...&#34;)
+        self.finished.emit()
+        text = f&#34;{self.elapsedTime:.4f},END,Total elapsed time in hh:mm:ss: {formatEpochTimeToDuration(self.elapsedTime)}. Total recording time including time paused: {formatEpochTimeToDuration(totalTime)}. Computer clock says it has been {formatEpochTimeToDuration(self.ended - self.started)}\n&#34;
+
+        self.file.write(text)
+
+        self.saveFile()
+        self.closeFile()
+        self.serial.close()
+
+        # Reset time
+        self.elapsedTime = 0
+        self.timeWhenPaused = 0
+        self.totalTimePaused = 0
+        self.started = 0
+        self.ended = 0
+        self.processData()
+
+    def processData(self):
+        &#34;&#34;&#34;Once user ends recording, process data in output csv such that
+        timing is adjusted in accordance to what paused sections were preserved or not&#34;&#34;&#34;
+        # Popup progress dialog box
+        print(&#34;Processing file...&#34;)
+        progressDialog = QProgressDialog(
+            &#34;Processing file...&#34;, &#34;Delete recording&#34;, 0, 10
+        )
+        progressDialog.setWindowModality(Qt.WindowModality.WindowModal)
+        df = pd.read_csv(
+            self.filename, names=[&#34;timestamp&#34;, &#34;label&#34;, &#34;value1&#34;, &#34;value2&#34;, &#34;value3&#34;]
+        )
+        pauses = df[df[&#34;label&#34;] == &#34;PAUSE&#34;].index.tolist()
+        resumes = df[df[&#34;label&#34;] == &#34;RESUME&#34;].index.tolist()
+        saves = df[df[&#34;label&#34;] == &#34;SAVE&#34;].index.tolist()
+        print(pauses, resumes, saves)
+        progressDialog.setMaximum(len(pauses) + 1)
+        for i in range(len(pauses)):
+            save = df.loc[saves[i]][&#34;value1&#34;]
+            if save == &#34;F&#34;:
+                timePausedFor = float(df.at[resumes[i], &#34;value1&#34;])
+                df.loc[resumes[i] + 1 : saves[i], &#34;timestamp&#34;] -= timePausedFor
+                df.drop(df.loc[pauses[i]:(resumes[i])].index, inplace=True)
+                df.drop(saves[i], inplace = True)
+            else:
+                df.drop([pauses[i], resumes[i], saves[i]], inplace=True)
+            progressDialog.setValue(i)
+
+        # change data to fit specifications
+
+        df[&#34;value2&#34;] = df[&#34;value2&#34;].astype(&#34;Int64&#34;)
+        df = df.drop(&#34;label&#34;, axis=1)
+        df = df.iloc[:-1]  # Drop last row, TEMP
+        df.timestamp.round(4)
+        outputFile = os.path.splitext(self.filename)[0]
+        pd.DataFrame(df).to_csv(outputFile + &#34;_processed.csv&#34;, index=False)
+        progressDialog.setValue(len(pauses))
+        print(&#34;Finished processing file&#34;)
+
+        # Prompt user whether they want to view recording in
+        # post-acquisition mode
+        answer = QMessageBox.question(
+            None,
+            &#34;Save&#34;,
+            &#34;Open recording in post-acquisition mode?&#34;,
+            QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.Yes,
+        )
+        if answer == QMessageBox.StandardButton.Yes:
+            self.processed.emit([outputFile + &#34;_processed.csv&#34;])
+        else:
+            pass
+
+    def sendParam(self, param: str):
+        &#34;&#34;&#34;Gets parameters from the EPG GUI and writes them to the serial
+        port to update configurations on the hardware side.
+        :param param: string representing parameters to change
+        &#34;&#34;&#34;
+        isOpen = self.serial.isOpen()
+        if not isOpen:
+            if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+                print(&#34;Couldn&#39;t open port&#34;)
+                return
+        self.serial.write(bytes(param.encode()))
+        print(&#34;Sending PARAM message &#34; + param)
+        if not isOpen:
+            self.serial.close()
+
+    def promptSavePaused(self, timePausedFor):
+        &#34;&#34;&#34;Show message box that asks user whether or not to keep the
+        paused portion of the recording or not
+
+        :param timePausedFor: Duration of the paused portion
+        &#34;&#34;&#34;
+        self.waitingForUserInput = True
+        answer = QMessageBox.question(
+            None,
+            &#34;Save&#34;,
+            &#34;Save paused portion of recording?&#34;,
+            QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.Yes,
+        )
+
+        clockTime = formatEpochTimeToClockTime(self.timeWhenPaused)
+        timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+        text = f&#34;Paused for {timePausedFor} seconds&#34;
+        annotationType = AnnotationType.VERTICAL 
+        duration = timePausedFor
+
+        if answer == QMessageBox.StandardButton.Yes:
+            # No annotation to save, save paused portion
+            self.file.write(f&#34;{self.elapsedTime},SAVE,T\n&#34;)
+            self.resumed.emit(True, self.buffer, timePausedFor)
+            self.buffer = []
+            self.waitingForUserInput = False
+        else:
+            # Get elapsed time when recording was paused 
+            timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+            self.totalTimePaused += timePausedFor
+
+            duration = 0
+            self.file.write(f&#34;{self.elapsedTime},SAVE,F\n&#34;)
+            # Edit times of points in buffer to account for paused portion
+            # being removed 
+            buffer = list(
+                map(
+                    lambda point: DataPoint(
+                        point.time - timePausedFor, point.voltage, point.channel
+                    ),
+                    self.buffer,
+                )
+            )
+            self.resumed.emit(False, buffer, timePausedFor)
+            self.buffer = []
+            self.waitingForUserInput = False
+        
+        # Create autogenerated annotation about pause
+        annotation = Annotation(timeStart = round(timeStart, 4), clockTime = clockTime, text = text, duration = round(duration,4), annotationType=annotationType, autogenerated = True)
+        self.addAnnotation.emit(annotation)
+
+
+    &#34;&#34;&#34; 
+    File operations
+    &#34;&#34;&#34;
+
+    def createFile(self, name=&#34;epgOutput.csv&#34;):
+        &#34;&#34;&#34;Creates a new csv file where data is stored&#34;&#34;&#34;
+        print(&#34;Saving data in &#34; + name)
+        self.filename = name
+        self.file = open(name, &#34;w&#34;)
+
+    def saveFile(self):
+        &#34;&#34;&#34;Saves data by flushing out data in memory&#34;&#34;&#34;
+        self.file.flush()
+
+    def closeFile(self):
+        &#34;&#34;&#34;Closes current file that EPG data is saved to&#34;&#34;&#34;
+        self.file.close()
+        self.file = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PySide6.QtCore.QObject</li>
+<li>Shiboken.Object</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="package.utils.serial_reader.SerialData.staticMetaObject"><code class="name">var <span class="ident">staticMetaObject</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="package.utils.serial_reader.SerialData.addAnnotation"><code class="name flex">
+<span>def <span class="ident">addAnnotation</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.addVerticalLine"><code class="name flex">
+<span>def <span class="ident">addVerticalLine</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.closeFile"><code class="name flex">
+<span>def <span class="ident">closeFile</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Closes current file that EPG data is saved to</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def closeFile(self):
+    &#34;&#34;&#34;Closes current file that EPG data is saved to&#34;&#34;&#34;
+    self.file.close()
+    self.file = None</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.createFile"><code class="name flex">
+<span>def <span class="ident">createFile</span></span>(<span>self, name='epgOutput.csv')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a new csv file where data is stored</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createFile(self, name=&#34;epgOutput.csv&#34;):
+    &#34;&#34;&#34;Creates a new csv file where data is stored&#34;&#34;&#34;
+    print(&#34;Saving data in &#34; + name)
+    self.filename = name
+    self.file = open(name, &#34;w&#34;)</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.finished"><code class="name flex">
+<span>def <span class="ident">finished</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.pauseData"><code class="name flex">
+<span>def <span class="ident">pauseData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pauses serial data acquisition</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pauseData(self):
+    &#34;&#34;&#34;Pauses serial data acquisition&#34;&#34;&#34;
+    if self.isPaused:
+        return
+    self.paused.emit()
+
+    elapsedTime = self.elapsedTime 
+    self.timeWhenPaused = time.time()
+
+    print(&#34;Pausing the recording...&#34;)
+
+    self.file.write(f&#34;{elapsedTime:.4f},PAUSE\n&#34;)
+    self.saveFile()
+
+    # Create vertical line at time recording was paused
+    self.addVerticalLine.emit(elapsedTime)
+    self.isPaused = True
+    self.isPlaying = False</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.paused"><code class="name flex">
+<span>def <span class="ident">paused</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.processData"><code class="name flex">
+<span>def <span class="ident">processData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Once user ends recording, process data in output csv such that
+timing is adjusted in accordance to what paused sections were preserved or not</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def processData(self):
+    &#34;&#34;&#34;Once user ends recording, process data in output csv such that
+    timing is adjusted in accordance to what paused sections were preserved or not&#34;&#34;&#34;
+    # Popup progress dialog box
+    print(&#34;Processing file...&#34;)
+    progressDialog = QProgressDialog(
+        &#34;Processing file...&#34;, &#34;Delete recording&#34;, 0, 10
+    )
+    progressDialog.setWindowModality(Qt.WindowModality.WindowModal)
+    df = pd.read_csv(
+        self.filename, names=[&#34;timestamp&#34;, &#34;label&#34;, &#34;value1&#34;, &#34;value2&#34;, &#34;value3&#34;]
+    )
+    pauses = df[df[&#34;label&#34;] == &#34;PAUSE&#34;].index.tolist()
+    resumes = df[df[&#34;label&#34;] == &#34;RESUME&#34;].index.tolist()
+    saves = df[df[&#34;label&#34;] == &#34;SAVE&#34;].index.tolist()
+    print(pauses, resumes, saves)
+    progressDialog.setMaximum(len(pauses) + 1)
+    for i in range(len(pauses)):
+        save = df.loc[saves[i]][&#34;value1&#34;]
+        if save == &#34;F&#34;:
+            timePausedFor = float(df.at[resumes[i], &#34;value1&#34;])
+            df.loc[resumes[i] + 1 : saves[i], &#34;timestamp&#34;] -= timePausedFor
+            df.drop(df.loc[pauses[i]:(resumes[i])].index, inplace=True)
+            df.drop(saves[i], inplace = True)
+        else:
+            df.drop([pauses[i], resumes[i], saves[i]], inplace=True)
+        progressDialog.setValue(i)
+
+    # change data to fit specifications
+
+    df[&#34;value2&#34;] = df[&#34;value2&#34;].astype(&#34;Int64&#34;)
+    df = df.drop(&#34;label&#34;, axis=1)
+    df = df.iloc[:-1]  # Drop last row, TEMP
+    df.timestamp.round(4)
+    outputFile = os.path.splitext(self.filename)[0]
+    pd.DataFrame(df).to_csv(outputFile + &#34;_processed.csv&#34;, index=False)
+    progressDialog.setValue(len(pauses))
+    print(&#34;Finished processing file&#34;)
+
+    # Prompt user whether they want to view recording in
+    # post-acquisition mode
+    answer = QMessageBox.question(
+        None,
+        &#34;Save&#34;,
+        &#34;Open recording in post-acquisition mode?&#34;,
+        QMessageBox.StandardButton.No,
+        QMessageBox.StandardButton.Yes,
+    )
+    if answer == QMessageBox.StandardButton.Yes:
+        self.processed.emit([outputFile + &#34;_processed.csv&#34;])
+    else:
+        pass</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.processed"><code class="name flex">
+<span>def <span class="ident">processed</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.progress"><code class="name flex">
+<span>def <span class="ident">progress</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.promptSavePaused"><code class="name flex">
+<span>def <span class="ident">promptSavePaused</span></span>(<span>self, timePausedFor)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Show message box that asks user whether or not to keep the
+paused portion of the recording or not</p>
+<p>:param timePausedFor: Duration of the paused portion</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def promptSavePaused(self, timePausedFor):
+    &#34;&#34;&#34;Show message box that asks user whether or not to keep the
+    paused portion of the recording or not
+
+    :param timePausedFor: Duration of the paused portion
+    &#34;&#34;&#34;
+    self.waitingForUserInput = True
+    answer = QMessageBox.question(
+        None,
+        &#34;Save&#34;,
+        &#34;Save paused portion of recording?&#34;,
+        QMessageBox.StandardButton.No,
+        QMessageBox.StandardButton.Yes,
+    )
+
+    clockTime = formatEpochTimeToClockTime(self.timeWhenPaused)
+    timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+    text = f&#34;Paused for {timePausedFor} seconds&#34;
+    annotationType = AnnotationType.VERTICAL 
+    duration = timePausedFor
+
+    if answer == QMessageBox.StandardButton.Yes:
+        # No annotation to save, save paused portion
+        self.file.write(f&#34;{self.elapsedTime},SAVE,T\n&#34;)
+        self.resumed.emit(True, self.buffer, timePausedFor)
+        self.buffer = []
+        self.waitingForUserInput = False
+    else:
+        # Get elapsed time when recording was paused 
+        timeStart = self.timeWhenPaused - self.totalTimePaused - self.started 
+        self.totalTimePaused += timePausedFor
+
+        duration = 0
+        self.file.write(f&#34;{self.elapsedTime},SAVE,F\n&#34;)
+        # Edit times of points in buffer to account for paused portion
+        # being removed 
+        buffer = list(
+            map(
+                lambda point: DataPoint(
+                    point.time - timePausedFor, point.voltage, point.channel
+                ),
+                self.buffer,
+            )
+        )
+        self.resumed.emit(False, buffer, timePausedFor)
+        self.buffer = []
+        self.waitingForUserInput = False
+    
+    # Create autogenerated annotation about pause
+    annotation = Annotation(timeStart = round(timeStart, 4), clockTime = clockTime, text = text, duration = round(duration,4), annotationType=annotationType, autogenerated = True)
+    self.addAnnotation.emit(annotation)</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.readData"><code class="name flex">
+<span>def <span class="ident">readData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given output in the form of 'O, pre-rect voltage, post-rect voltage',
+displays on visualizer and saves to file
+:param data: bytes representing voltage data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@Slot()
+def readData(self):
+    &#34;&#34;&#34;Given output in the form of &#39;O, pre-rect voltage, post-rect voltage&#39;,
+    displays on visualizer and saves to file
+    :param data: bytes representing voltage data
+    &#34;&#34;&#34;
+    while self.serial.canReadLine():
+        data = str(self.serial.readLine(), &#34;utf-8&#34;).strip().split(&#34;,&#34;)
+        label = data[0]
+        if label == &#34;O&#34;:
+            self.elapsedTime = round(
+                time.time() - self.totalTimePaused - self.started, 4
+            )
+            prerectified, rectified = data[1], data[2]
+            voltage = rectified
+            channel = 1  # Placeholder value
+            point = DataPoint(self.elapsedTime, voltage, channel)
+            row = f&#34;{point.time:.4f},DATA,{point.voltage:.4f},{channel}\n&#34;
+            # If user is deciding where to save paused data or not
+            # store incoming data points into buffer
+            if self.waitingForUserInput:
+                self.buffer.append(point)
+            else:
+                self.progress.emit([point])
+            self.file.write(row)
+        else:
+            print(data)
+            print(&#34;Error in parsing&#34;)</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.ready"><code class="name flex">
+<span>def <span class="ident">ready</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.resumed"><code class="name flex">
+<span>def <span class="ident">resumed</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.saveFile"><code class="name flex">
+<span>def <span class="ident">saveFile</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves data by flushing out data in memory</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def saveFile(self):
+    &#34;&#34;&#34;Saves data by flushing out data in memory&#34;&#34;&#34;
+    self.file.flush()</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.sendParam"><code class="name flex">
+<span>def <span class="ident">sendParam</span></span>(<span>self, param: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets parameters from the EPG GUI and writes them to the serial
+port to update configurations on the hardware side.
+:param param: string representing parameters to change</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sendParam(self, param: str):
+    &#34;&#34;&#34;Gets parameters from the EPG GUI and writes them to the serial
+    port to update configurations on the hardware side.
+    :param param: string representing parameters to change
+    &#34;&#34;&#34;
+    isOpen = self.serial.isOpen()
+    if not isOpen:
+        if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+            print(&#34;Couldn&#39;t open port&#34;)
+            return
+    self.serial.write(bytes(param.encode()))
+    print(&#34;Sending PARAM message &#34; + param)
+    if not isOpen:
+        self.serial.close()</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.setUpSerial"><code class="name flex">
+<span>def <span class="ident">setUpSerial</span></span>(<span>self, deviceManufacturers: list[str] = ['teensy', 'arduino'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scans all available serial ports and selects the EPG monitor
+:param deviceManufacturers: list of names that fit the EPG monitor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setUpSerial(self, deviceManufacturers: list[str] = [&#34;teensy&#34;, &#34;arduino&#34;]):
+    &#34;&#34;&#34;Scans all available serial ports and selects the EPG monitor
+    :param deviceManufacturers: list of names that fit the EPG monitor
+    &#34;&#34;&#34;
+    print(&#34;Setting up serial...&#34;)
+    ports = QSerialPortInfo.availablePorts()
+    candidateDevices = []
+    for port in ports:
+        for deviceName in deviceManufacturers:
+            portName = port.portName().lower()
+            # TODO: identify better identification methods
+            # if deviceName in port.manufacturer().lower() and (&#34;usb&#34; in portName or &#34;ttyacm0&#34; in portName):
+            candidateDevices.append(port)
+
+    portName = &#34;&#34;
+    for port in candidateDevices:
+        print(&#34;Selecting first matching device:&#34;)
+        print(&#34;Port: &#34; + port.portName())
+        print(&#34;Manufacturer: &#34; + port.manufacturer())
+        print(&#34;Description: &#34; + port.description())
+        portName = port.portName()
+        break
+
+    if portName == &#34;&#34;:
+        print(&#34;Port could not be found&#34;)
+        self.finished.emit()
+        return -1
+
+    # Set up serial port for reading
+    self.serial = QSerialPort()
+    self.serial.setPortName(portName)
+    self.serial.setBaudRate(
+        QSerialPort.BaudRate.Baud9600, QSerialPort.Direction.Input
+    )
+
+    # # Wait for EPG to be ready before streaming data
+    # if (not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite)):
+    #        print(&#34;Unable to open serial port&#34;)
+    #        return
+
+    # # Tell EPG to start up and send sample rate
+    # # self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+    # # Wait for response from EPG
+    # self.serial.readyRead.connect(lambda message = &#34;INIT&#34;:self.waitForMessageFromEPG(message))
+
+    # To test without dealing with EPG setup, comment out everything after
+    # the line that says wait for EPG to be ready before streaming data.
+    # Also upload code in resources/teensy_code/noInitialization to Teensy
+    self.ready.emit()
+    self.serial.readyRead.connect(self.readData)</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.startReadingData"><code class="name flex">
+<span>def <span class="ident">startReadingData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Opens serial port and reads data when available</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def startReadingData(self):
+    &#34;&#34;&#34;Opens serial port and reads data when available&#34;&#34;&#34;
+    if self.isPlaying:
+        return
+    if self.started == 0:
+        self.started = time.time()
+        self.startTime.emit(self.started)
+        if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
+            print(&#34;Unable to open serial port or port already open&#34;)
+    # If resuming from a paused recording
+    if self.isPaused:
+        # Add amount of time that the recording was paused
+        timePausedFor = time.time() - self.timeWhenPaused
+        self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+        self.promptSavePaused(timePausedFor)
+
+    self.isPlaying = True
+    self.isPaused = False</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.startTime"><code class="name flex">
+<span>def <span class="ident">startTime</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.stopData"><code class="name flex">
+<span>def <span class="ident">stopData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stops serial data acquisition. The next time recording is started,
+it will start as a new file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stopData(self):
+    &#34;&#34;&#34;Stops serial data acquisition. The next time recording is started,
+    it will start as a new file.
+    &#34;&#34;&#34;
+    self.ended = time.time()
+    if self.isPaused:
+        # If recording is paused when user ends the session,
+        # ask user whether they want to keep the paused portion or not
+        timePausedFor = self.ended - self.timeWhenPaused
+        self.file.write(f&#34;{self.elapsedTime},RESUME,{timePausedFor:.4f}\n&#34;)
+        self.promptSavePaused(timePausedFor)
+
+    totalTime = self.elapsedTime + self.totalTimePaused
+    print(&#34;Stopping serial communication and closing file...&#34;)
+    self.finished.emit()
+    text = f&#34;{self.elapsedTime:.4f},END,Total elapsed time in hh:mm:ss: {formatEpochTimeToDuration(self.elapsedTime)}. Total recording time including time paused: {formatEpochTimeToDuration(totalTime)}. Computer clock says it has been {formatEpochTimeToDuration(self.ended - self.started)}\n&#34;
+
+    self.file.write(text)
+
+    self.saveFile()
+    self.closeFile()
+    self.serial.close()
+
+    # Reset time
+    self.elapsedTime = 0
+    self.timeWhenPaused = 0
+    self.totalTimePaused = 0
+    self.started = 0
+    self.ended = 0
+    self.processData()</code></pre>
+</details>
+</dd>
+<dt id="package.utils.serial_reader.SerialData.waitForMessageFromEPG"><code class="name flex">
+<span>def <span class="ident">waitForMessageFromEPG</span></span>(<span>self, message: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Waits until serial data matching specific message can be read.
+param message: message that should be waited for before proceeding
+to next step of initialization</p>
+<p>:param message: message that should be waited for</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@Slot(str)
+def waitForMessageFromEPG(self, message: str):
+    &#34;&#34;&#34;Waits until serial data matching specific message can be read.
+    param message: message that should be waited for before proceeding
+    to next step of initialization
+
+    :param message: message that should be waited for
+    &#34;&#34;&#34;
+    while self.serial.canReadLine():
+        data = str(self.serial.readLine().data(), &#34;utf-8&#34;).strip()
+        label = data.split(&#34;,&#34;)[0]
+        print(&#34;INIT MODE&#34;, data)
+        if label != message:
+            return
+
+        match label:
+            case &#34;INIT&#34;:
+                print(&#34;INIT message received&#34;)
+                print(data)
+                print(&#34;Sending BEGIN message...&#34;)
+                self.serial.readyRead.disconnect()
+                self.serial.readyRead.connect(
+                    lambda message=&#34;BEGIN&#34;: self.waitForMessageFromEPG(message)
+                )
+                self.serial.write(bytes(f&#34;BEGIN,{self.sampleRate}\n&#34;.encode()))
+                break
+            case &#34;BEGIN&#34;:
+                print(&#34;BEGIN message received&#34;)
+                print(data)
+                print(&#34;Sending PARAM message...&#34;)
+                self.serial.readyRead.disconnect()
+                self.serial.readyRead.connect(
+                    lambda message=&#34;PARAM&#34;: self.waitForMessageFromEPG(message)
+                )
+                # PARAM, channel #, input resistance, amplifier gain, DC bias, excitation frequency, excitation amplitude
+                self.serial.write(bytes(&#34;PARAM,1,100000,0,0,100,0\n&#34;.encode()))
+                break
+            case &#34;PARAM&#34;:
+                print(&#34;PARAM message received&#34;)
+                print(data)
+                print(&#34;Set up complete!&#34;)
+                self.serial.readyRead.disconnect()
+                self.serial.readyRead.connect(
+                    self.readData, Qt.ConnectionType.UniqueConnection
+                )
+                self.serial.close()
+                self.ready.emit()
+                break</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="package.utils" href="index.html">package.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="package.utils.serial_reader.SerialData" href="#package.utils.serial_reader.SerialData">SerialData</a></code></h4>
+<ul class="">
+<li><code><a title="package.utils.serial_reader.SerialData.addAnnotation" href="#package.utils.serial_reader.SerialData.addAnnotation">addAnnotation</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.addVerticalLine" href="#package.utils.serial_reader.SerialData.addVerticalLine">addVerticalLine</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.closeFile" href="#package.utils.serial_reader.SerialData.closeFile">closeFile</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.createFile" href="#package.utils.serial_reader.SerialData.createFile">createFile</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.finished" href="#package.utils.serial_reader.SerialData.finished">finished</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.pauseData" href="#package.utils.serial_reader.SerialData.pauseData">pauseData</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.paused" href="#package.utils.serial_reader.SerialData.paused">paused</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.processData" href="#package.utils.serial_reader.SerialData.processData">processData</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.processed" href="#package.utils.serial_reader.SerialData.processed">processed</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.progress" href="#package.utils.serial_reader.SerialData.progress">progress</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.promptSavePaused" href="#package.utils.serial_reader.SerialData.promptSavePaused">promptSavePaused</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.readData" href="#package.utils.serial_reader.SerialData.readData">readData</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.ready" href="#package.utils.serial_reader.SerialData.ready">ready</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.resumed" href="#package.utils.serial_reader.SerialData.resumed">resumed</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.saveFile" href="#package.utils.serial_reader.SerialData.saveFile">saveFile</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.sendParam" href="#package.utils.serial_reader.SerialData.sendParam">sendParam</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.setUpSerial" href="#package.utils.serial_reader.SerialData.setUpSerial">setUpSerial</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.startReadingData" href="#package.utils.serial_reader.SerialData.startReadingData">startReadingData</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.startTime" href="#package.utils.serial_reader.SerialData.startTime">startTime</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.staticMetaObject" href="#package.utils.serial_reader.SerialData.staticMetaObject">staticMetaObject</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.stopData" href="#package.utils.serial_reader.SerialData.stopData">stopData</a></code></li>
+<li><code><a title="package.utils.serial_reader.SerialData.waitForMessageFromEPG" href="#package.utils.serial_reader.SerialData.waitForMessageFromEPG">waitForMessageFromEPG</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
